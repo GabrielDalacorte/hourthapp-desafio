@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+<!-- Main jumbotron for a primary marketing message or call to action -->
+<div class="jumbotron">
+  <div class="container">
+    <!-- <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more &raquo;</a></p> -->
+  </div>
+</div>
+
+<div class="container">
+  <!-- Example row of columns -->
+  <div class="row">
+    <div class="col-md-6">
+      <table id="myTable1" class="table">
+        <thead>
+          <tr>
+            <th>Produto</th>
+            <th>Data de inserção na loja</th>
+            <th>Total</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for data in select_data %}
+            <tr>
+              <th><a href="{{ data.product.url }}">{{ data.product.url }}</a></th>
+              <td>{{ data.insertion_date }}</td>
+                <td>{{ data.generic_function_sum.sum }}</td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+  </div>
+
+  <hr>
+
+</div> <!-- /container -->
+
+{% endblock content %}
+
+{% block js %}
+
+<script src="{% static 'js/data.js' %}"></script>
+
+{% endblock js %}
