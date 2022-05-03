@@ -26,7 +26,7 @@ router.register(r'hourthapp', ProductsViewSet, basename='HourthApp')
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.index, name='index'),
+    path('', views.main, name='main'),
     path('api/v1/', include(router.urls)),
 
 ]

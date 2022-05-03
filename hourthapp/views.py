@@ -1,11 +1,14 @@
+from urllib.request import Request
+from django.http import HttpResponse
 from django.shortcuts import render
 from django.db.models import Sum
+from django.template import RequestContext
 
 # Create your views here.
 from hourthapp.models import HourthApp
 
 
-def index(request):
+def main(request):
     select_data = HourthApp.objects.all()
     dict_sum = {}
 
